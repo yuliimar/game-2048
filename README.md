@@ -25,9 +25,6 @@ The project is based on a base layout template with **Gulp, SCSS, and Stylelint*
 
 ---
 
-## 🛠️ Project Structure
-
----
 
 ## 📦 Game Class API
 
