@@ -44,14 +44,16 @@ class Game {
     this.state.forEach((row, y) => {
       row.forEach((cell, x) => {
         if (cell === 0) {
-          emptyCells.push({ y, x });
+          emptyCells.push({
+            y, x,
+          });
         }
       });
     });
 
     if (emptyCells.length > 0) {
-      const { y, x } =
-        emptyCells[Math.floor(Math.random() * emptyCells.length)];
+      const { y, x }
+        = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
       this.state[y][x] = Math.random() < 0.9 ? 2 : 4;
     }

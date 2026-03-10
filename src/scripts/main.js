@@ -1,18 +1,18 @@
-"use strict";
+'use strict';
 
-import Game from "../modules/Game.class.js";
+const Game = require('../modules/Game.class.js');
 
 const game = new Game();
-const startButton = document.querySelector(".button.start");
-const helpButton = document.querySelector(".button.help");
-const closeHelpButton = document.querySelector(".close-help");
-const helpModal = document.querySelector(".help-modal");
+const startButton = document.querySelector('.button.start');
+const helpButton = document.querySelector('.button.help');
+const closeHelpButton = document.querySelector('.close-help');
+const helpModal = document.querySelector('.help-modal');
 
-const gameScore = document.querySelector(".game-score");
-const fieldCells = document.querySelectorAll(".field-cell");
-const messageStart = document.querySelector(".message-start");
-const messageWin = document.querySelector(".message-win");
-const messageLose = document.querySelector(".message-lose");
+const gameScore = document.querySelector('.game-score');
+const fieldCells = document.querySelectorAll('.field-cell');
+const messageStart = document.querySelector('.message-start');
+const messageWin = document.querySelector('.message-win');
+const messageLose = document.querySelector('.message-lose');
 
 let previousState = game.getState();
 
@@ -24,14 +24,14 @@ function updateUI() {
       const cell = fieldCells[y * 4 + x];
       const prevValue = previousState[y][x];
 
-      cell.textContent = value || "";
-      cell.className = `field-cell${value ? ` field-cell--${value}` : ""}`;
+      cell.textContent = value || '';
+      cell.className = `field-cell${value ? ` field-cell--${value}` : ''}`;
 
       if (value !== prevValue) {
-        cell.classList.add("appear");
+        cell.classList.add('appear');
 
         setTimeout(() => {
-          cell.classList.remove("appear");
+          cell.classList.remove('appear');
         }, 150);
       }
     });
@@ -40,18 +40,19 @@ function updateUI() {
   previousState = newState.map((row) => [...row]);
 
   gameScore.textContent = game.getScore();
-  messageStart.classList.toggle("hidden", game.getStatus() !== "idle");
-  messageWin.classList.toggle("hidden", game.getStatus() !== "win");
-  messageLose.classList.toggle("hidden", game.getStatus() !== "lose");
+  messageStart.classList.toggle('hidden', game.getStatus() !== 'idle');
+  messageWin.classList.toggle('hidden', game.getStatus() !== 'win');
+  messageLose.classList.toggle('hidden', game.getStatus() !== 'lose');
 
-  startButton.textContent = game.getStatus() === "idle" ? "Start" : "Restart";
+  startButton.textContent = game.getStatus() === 'idle' ? 'Start' : 'Restart';
+
   startButton.className = `button ${
-    game.getStatus() === "idle" ? "start" : "restart"
+    game.getStatus() === 'idle' ? 'start' : 'restart'
   }`;
 }
 
-startButton.addEventListener("click", () => {
-  if (game.getStatus() === "idle") {
+startButton.addEventListener('click', () => {
+  if (game.getStatus() === 'idle') {
     game.start();
   } else {
     game.restart();
@@ -60,43 +61,43 @@ startButton.addEventListener("click", () => {
   updateUI();
 });
 
-helpButton.addEventListener("click", () => {
-  helpModal.classList.remove("hidden");
+helpButton.addEventListener('click', () => {
+  helpModal.classList.remove('hidden');
 });
 
-closeHelpButton.addEventListener("click", () => {
-  helpModal.classList.add("hidden");
+closeHelpButton.addEventListener('click', () => {
+  helpModal.classList.add('hidden');
 });
 
-helpModal.addEventListener("click", (event) => {
+helpModal.addEventListener('click', (event) => {
   if (event.target === helpModal) {
-    helpModal.classList.add("hidden");
+    helpModal.classList.add('hidden');
   }
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    helpModal.classList.add("hidden");
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    helpModal.classList.add('hidden');
   }
 
-  if (game.getStatus() !== "playing") {
+  if (game.getStatus() !== 'playing') {
     return;
   }
 
   switch (e.key) {
-    case "ArrowLeft":
+    case 'ArrowLeft':
       game.moveLeft();
       break;
 
-    case "ArrowRight":
+    case 'ArrowRight':
       game.moveRight();
       break;
 
-    case "ArrowUp":
+    case 'ArrowUp':
       game.moveUp();
       break;
 
-    case "ArrowDown":
+    case 'ArrowDown':
       game.moveDown();
       break;
 
