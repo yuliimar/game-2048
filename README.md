@@ -47,7 +47,7 @@ Methods you can use:
 Clone repo and run locally:
 
 ```bash
-git clone https://github.com/<your_account>/<repo_name>.git
+git clone https://github.com/yuliimar/game-2048.git
 cd <repo_name>
 npm install
 npm start
