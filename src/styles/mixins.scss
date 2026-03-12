@@ -1,0 +1,42 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin button-base {
+  cursor: pointer;
+  border: none;
+  border-radius: $border-radius;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: $color-text-light;
+  transition: $transition-speed ease background;
+
+  @include flex-center;
+
+  padding: 0;
+}
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin animation-appear {
+  animation: appear $animation-speed ease-out;
+}
+
+@mixin animation-fade {
+  animation: fade-in $modal-animation-speed ease-out;
+}
+
+@mixin animation-slide {
+  animation: slide-in $modal-animation-speed ease-out;
+}

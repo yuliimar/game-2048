@@ -1,0 +1,84 @@
+.game-field {
+  border-spacing: $spacing-sm;
+  border-radius: $border-radius;
+  background: $color-grid-bg;
+  width: 100%;
+  table-layout: fixed;
+
+  &__row {
+    display: table-row;
+  }
+
+  &__cell {
+    user-select: none;
+    box-sizing: border-box;
+
+    @include square($cell-size);
+
+    border-radius: $border-radius;
+    color: $color-text-dark;
+    text-align: center;
+    vertical-align: middle;
+    background: $color-cell-bg;
+    font-size: $font-size-xxl;
+    font-weight: 900;
+
+    @include respond-to($breakpoint-sm) {
+      @include square($cell-size-md);
+
+      font-size: $font-size-xl;
+    }
+
+    @include respond-to($breakpoint-xs) {
+      @include square($cell-size-sm);
+
+      font-size: $font-size-lg;
+    }
+
+    @include respond-to($breakpoint-xxs) {
+      @include square($cell-size-xs);
+
+      font-size: $font-size-md;
+    }
+
+    @include respond-to($breakpoint-xxxs) {
+      @include square(2.81rem);
+
+      font-size: $font-size-sm;
+    }
+
+    &--appear {
+      @include animation-appear;
+    }
+
+    @each $value, $color in $tile-colors {
+      &--#{$value} {
+        background: $color;
+
+        @if $value >= 8 {
+          color: $color-text-light;
+        }
+
+        @if $value >= 1024 {
+          font-size: $font-size-xl;
+
+          @include respond-to($breakpoint-sm) {
+            font-size: $font-size-lg;
+          }
+
+          @include respond-to($breakpoint-xs) {
+            font-size: $font-size-md;
+          }
+
+          @include respond-to($breakpoint-xxs) {
+            font-size: $font-size-sm;
+          }
+
+          @include respond-to($breakpoint-xxxs) {
+            font-size: 0.68rem;
+          }
+        }
+      }
+    }
+  }
+}

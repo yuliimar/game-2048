@@ -2,63 +2,146 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>2048</title>
     <link rel="stylesheet" href="./styles/main.scss" />
   </head>
   <body>
     <div class="container">
-      <div class="game-header">
-        <h1>2048</h1>
-        <div class="controls">
-          <p class="info">
+      <header class="game-header">
+        <div class="game-header__row">
+          <h1 class="game-header__title">2048</h1>
+          <div class="game-header__score">
             Score:
-            <span class="game-score">0</span>
-          </p>
-          <button class="button start">Start</button>
+            <span class="game-header__score-value game-score">0</span>
+          </div>
+          <button class="button button--start">Start</button>
+          <button class="button button--help">Help</button>
         </div>
-      </div>
+      </header>
 
       <table class="game-field">
         <tbody>
-          <tr class="field-row">
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
+          <tr class="game-field__row">
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
           </tr>
-
-          <tr class="field-row">
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
+          <tr class="game-field__row">
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
           </tr>
-
-          <tr class="field-row">
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
+          <tr class="game-field__row">
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
           </tr>
-
-          <tr class="field-row">
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
-            <td class="field-cell"></td>
+          <tr class="game-field__row">
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
+            <td class="game-field__cell"></td>
           </tr>
         </tbody>
       </table>
 
       <div class="message-container">
-        <p class="message message-lose hidden">You lose! Restart the game?</p>
-        <p class="message message-win hidden">Winner! Congrats! You did it!</p>
-        <p class="message message-start">
+        <p class="message message--lose hidden">You lose! Restart the game?</p>
+        <p class="message message--win hidden">Winner! Congrats! You did it!</p>
+        <p class="message message--start">
           Press "Start" to begin game. Good luck!
         </p>
       </div>
     </div>
+
+    <!-- How to play modal with full instructions -->
+    <div
+      class="modal modal--hidden"
+      id="helpPlayModal"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
+    >
+      <div class="modal__content">
+        <div class="modal__header">
+          <h2 class="modal__title" id="modal-title">How to Play 2048</h2>
+          <button class="modal__close" aria-label="Close">×</button>
+        </div>
+        <div class="modal__body" id="modal-description">
+          <!-- Goal section -->
+          <h3 class="modal__section-title">Goal</h3>
+          <p class="modal__text">
+            Combine tiles with the same numbers to reach
+            <strong class="modal__strong">2048</strong>!
+          </p>
+
+          <!-- Controls section -->
+          <h3 class="modal__section-title">Controls</h3>
+          <p class="modal__text">
+            Use <strong class="modal__strong">arrow keys</strong> (← ↑ → ↓) to
+            move all tiles:
+          </p>
+          <ul class="modal__list">
+            <li class="modal__list-item">
+              Press <strong class="modal__strong">←</strong> to move tiles left
+            </li>
+            <li class="modal__list-item">
+              Press <strong class="modal__strong">→</strong> to move tiles right
+            </li>
+            <li class="modal__list-item">
+              Press <strong class="modal__strong">↑</strong> to move tiles up
+            </li>
+            <li class="modal__list-item">
+              Press <strong class="modal__strong">↓</strong> to move tiles down
+            </li>
+          </ul>
+
+          <!-- Rules section -->
+          <h3 class="modal__section-title">Rules</h3>
+          <ul class="modal__list">
+            <li class="modal__list-item">
+              When two tiles with the same number touch, they
+              <strong class="modal__strong">merge into one</strong> 2 + 2 = 4 or
+              4 + 4 = 8 etc.
+            </li>
+            <li class="modal__list-item">
+              Each move adds a new tile
+              <strong class="modal__strong">2</strong>
+              (90% chance) or <strong class="modal__strong">4</strong> (10%
+              chance)
+            </li>
+            <li class="modal__list-item">
+              Your <strong class="modal__strong">score increases</strong> by the
+              value of each merged tile
+            </li>
+            <li class="modal__list-item">
+              The game ends when the board is full and no moves are possible
+            </li>
+          </ul>
+
+          <!-- Tips section -->
+          <h3 class="modal__section-title">Tips</h3>
+          <ul class="modal__list">
+            <li class="modal__list-item">
+              Try to keep your highest tile in one corner
+            </li>
+            <li class="modal__list-item">Plan your moves ahead</li>
+            <li class="modal__list-item">Don't fill the board randomly</li>
+          </ul>
+        </div>
+        <div class="modal__footer">
+          <button class="modal__button">Ok!</button>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,31 @@
+.message-container {
+  width: 100%;
+  margin-top: $spacing-xl;
+}
+
+.message {
+  box-sizing: border-box;
+  width: 100%;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  font-size: $font-size-md;
+  color: $color-text-dark;
+  text-align: center;
+  background: $color-cell-bg;
+  margin: $spacing-xs 0;
+
+  @include respond-to($breakpoint-sm) {
+    font-size: $font-size-xs;
+    padding: $spacing-sm;
+  }
+
+  &--win {
+    color: $color-text-light;
+    background: $color-win;
+  }
+
+  &--lose {
+    background: $color-restart;
+    color: $color-text-dark;
+  }
+}

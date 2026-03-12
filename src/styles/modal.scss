@@ -1,0 +1,169 @@
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+  box-sizing: border-box;
+
+  @include animation-fade;
+
+  &--hidden {
+    display: none;
+  }
+
+  &__content {
+    background-color: $color-bg;
+    border-radius: $border-radius-lg;
+    max-width: 31.25rem;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: $modal-shadow;
+
+    @include animation-slide;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-lg $spacing-xl;
+    border-bottom: 2px solid $color-grid-bg;
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-text-dark;
+    font-size: $font-size-xl;
+
+    @include respond-to($breakpoint-sm) {
+      font-size: $font-size-lg;
+    }
+
+    @include respond-to($breakpoint-xs) {
+      font-size: $font-size-md;
+    }
+  }
+
+  &__close {
+    color: $color-text-dark;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color $transition-speed;
+    line-height: 1;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      color: $color-close-hover;
+    }
+
+    @include respond-to($breakpoint-sm) {
+      font-size: $font-size-xxl;
+    }
+  }
+
+  &__body {
+    padding: $spacing-lg $spacing-xl;
+    color: $color-text-dark;
+
+    @include respond-to($breakpoint-xs) {
+      padding: $spacing-md;
+    }
+  }
+
+  &__section-title {
+    margin: $spacing-lg 0 $spacing-sm;
+    color: $color-win;
+    font-size: $font-size-lg;
+
+    @include respond-to($breakpoint-sm) {
+      font-size: $font-size-md;
+      margin: $spacing-md 0 $spacing-xs;
+    }
+
+    @include respond-to($breakpoint-xs) {
+      font-size: $font-size-sm;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    margin: $spacing-sm 0;
+    line-height: 1.5;
+    font-size: $font-size-sm;
+    font-weight: normal;
+
+    @include respond-to($breakpoint-sm) {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__list {
+    margin: $spacing-sm 0;
+    padding-left: $spacing-xl;
+
+    @include respond-to($breakpoint-xs) {
+      padding-left: $spacing-lg;
+    }
+  }
+
+  &__list-item {
+    margin: $spacing-xs 0;
+    line-height: 1.4;
+    font-size: $font-size-sm;
+    font-weight: normal;
+
+    @include respond-to($breakpoint-sm) {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__strong {
+    color: #f67c5f;
+  }
+
+  &__footer {
+    padding: $spacing-lg $spacing-xl;
+    text-align: center;
+  }
+
+  &__button {
+    @include button-base;
+
+    width: auto;
+    min-width: 7.5rem;
+    height: 3.12rem;
+    padding: 0 $spacing-xl;
+    background: $color-win;
+    font-size: $font-size-md;
+
+    &:hover {
+      background: #f2b179;
+    }
+
+    @include respond-to($breakpoint-sm) {
+      min-width: 6.25rem;
+      height: 2.81rem;
+      font-size: $font-size-sm;
+    }
+
+    @include respond-to($breakpoint-xs) {
+      min-width: 5rem;
+      height: 2.5rem;
+      font-size: $font-size-xs;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+// Colors
+$color-bg: #fbf8ef;
+$color-text-dark: #776e65;
+$color-text-light: #f9f6f2;
+$color-grid-bg: #bbada0;
+$color-cell-bg: #d6cdc4;
+$color-header-bg: #edc22e;
+$color-start: #1dae28;
+$color-start-hover: #179921;
+$color-restart: #f1b2b2;
+$color-restart-hover: #f87474;
+$color-help: #3498db;
+$color-help-hover: #2980b9;
+$color-win: #edc22e;
+$color-close-hover: #edc22e;
+
+// Tile colors
+$tile-colors: (
+  2: #eee4da,
+  4: #ede0c8,
+  8: #f2b179,
+  16: #f59563,
+  32: #f67c5f,
+  64: #f65e3b,
+  128: #edcf72,
+  256: #edcc61,
+  512: #edc850,
+  1024: #edc53f,
+  2048: #edc22e,
+);
+
+// Sizes (rem)
+$cell-size: 4.68rem;
+$cell-size-md: 4.06rem;
+$cell-size-sm: 3.75rem;
+$cell-size-xs: 3.12rem; // 50px for 300px screen
+
+$header-size: 4.37rem;
+$header-size-sm: 3.75rem; // 60px
+$header-size-xs: 3.12rem; // 50px
+
+$border-radius: 0.31rem;
+$border-radius-lg: 0.62rem;
+
+// Spacing
+$spacing-xs: 0.31rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 0.62rem;
+$spacing-lg: 0.93rem;
+$spacing-xl: 1.25rem;
+
+// Font sizes
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.87rem; // 14px
+$font-size-md: 1rem;
+$font-size-lg: 1.12rem;
+$font-size-xl: 1.25rem;
+$font-size-xxl: 1.5rem;
+
+// Breakpoints
+$breakpoint-sm: 400px;
+$breakpoint-xs: 360px;
+$breakpoint-xxs: 320px; // Changed to 320px for better control
+$breakpoint-xxxs: 300px; // Added for 300px screens
+
+// Shadows
+$modal-shadow: 0 0.31rem 1.87rem rgba(0, 0, 0, 0.3);
+
+// Animations
+$transition-speed: 0.25s;
+$animation-speed: 0.15s;
+$modal-animation-speed: 0.3s;
